@@ -41,12 +41,12 @@ def recommend(service_requested,coordinates):
         score = (0.6*norm_distance) + (0.4*norm_rating)
         hospital["score"] = score
     
-    return_list.sort(key=lambda x: x["score"])
+    return_list.sort(key=lambda x: x["score"], reverse=True)
     return return_list
 
     
-
-print(recommend("ECG",[26.310,23.449]))
+for hospital in recommend("ECG",[26.310,23.449]):
+    print(hospital["name"],hospital["score"])
 
 
 
